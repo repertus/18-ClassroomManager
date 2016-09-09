@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="UTF-8">
+  <title>Classroom Manager</title>
+<!-- bower:css -->
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+<link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+<link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
+<!-- endbower -->
+
+<!-- inject:css -->
+<link rel="stylesheet" href="/app/styles/styles.css">
+<!-- endinject -->
+</head>
+
+<body>
+
+	<!-- Navigation -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+			<a class="navbar-brand" href="#">Classroom Manager</a>
+			<ul class="nav navbar-nav">
+				<li><a ui-sref="dashboard">Dashboard</a></li>
+				<li><a ui-sref="students.grid">Students</a></li>
+				<li><a ui-sref="projects.grid">Projects</a></li>
+			</ul>
+	</nav>
+
+
+
+	<!-- Main container div -->
+	<div class="container">
+		<div ui-view></div>
+	</div> 
+	<!-- Main container div -->
+
+	<!-- Used to set up sticky footer -->
+	<div class="push"></div>
+
+	<div class="footer">
+		<span>&copy; Repertus Creative Works</span>
+		<br>
+		<span><a href="mailto: RobertMdC@gmail.com"><img src="app/styles/img/glyphicons-social-19-gmail.png"></a></span>
+		<span><a href="https://www.linkedin.com/in/robertmdelc"><img src="app/styles/img/glyphicons-social-18-linked-in.png"></a></span>
+		<span><a href="https://github.com/repertus"><img src="app/styles/img/glyphicons-gitHub.png" width="25"></a></span>	
+	</div>
+
+
+<!-- bower:js -->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<!-- endbower -->
+
+<!-- inject:js -->
+<script src="/app/app.js"></script>
+<script src="/app/core/assignment.factory.js"></script>
+<script src="/app/dashboard/dashboard.controller.js"></script>
+<!-- <script src="/app/dashboard/dashboard.controller.spec.js"></script> -->
+<script src="/app/dashboard/dashboard.factory.js"></script>
+<!-- <script src="/app/dashboard/dashboard.factory.spec.js"></script> -->
+<script src="/app/projects/project.detail.controller.js"></script>
+<script src="/app/projects/project.factory.js"></script>
+<script src="/app/projects/project.grid.controller.js"></script>
+<script src="/app/students/student.detail.controller.js"></script>
+<script src="/app/students/student.factory.js"></script>
+<script src="/app/students/student.grid.controller.js"></script>
+<!-- endinject -->
+</body>
+</html>

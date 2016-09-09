@@ -1,0 +1,72 @@
+<hr>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Assign a project</h3>
+	</div>
+	<div class="panel-body">
+		<form ng-submit='studentDetail.addAssignment(studentDetail.student.studentId)'>
+			<label for="">Select a Project</label>
+			<div class='input-group'>
+				<select id="input" ng-model='studentDetail.newAssignment' ng-options='option.name for option in studentDetail.projects' class="form-control" required="required">
+					<option value="">Select a project to assign to a student</option>
+				</select>
+				<span class='input-group-btn'>
+					<button type="submit" class="btn btn-secondary">Assign</button>
+				</span>
+			</div>
+		</form>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Assignments</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Grade</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat='assignment in studentDetail.student.assignments'>
+					<td>{{assignment.project.name}}</td>
+					<td>??%</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<h3 class="panel-title">Edit Student</h3>
+	</div>
+	<div class="panel-body">
+		<form role="form">
+			<div class="form-group">
+				<label for="">First Name</label>
+				<input ng-model="studentDetail.student.firstName" type="text" class="form-control" id="">
+				<label for="">Last Name</label>
+				<input ng-model="studentDetail.student.lastName" type="text" class="form-control" id="">
+			</div>
+			<div class="form-group">
+				<label for="email">Email address:</label>
+    			<input ng-model="studentDetail.student.emailAddress" type="text" class="form-control" id="email">
+			</div>
+			<div class="form-group">
+				<label for="email">Telephone:</label>
+    			<input ng-model="studentDetail.student.telephone" type='text' class="form-control" id="phone">
+			</div>
+			<button type="submit" class="btn btn-primary" ng-click="studentDetail.updateStudent(studentDetail.student)">Save</button>
+		</form>
+	</div>
+</div>
+
+<!-- <pre>{{studentDetail.student.assignments[0].project.name}}</pre>
+<pre>{{studentDetail.student | json}}</pre> -->
+
+
+<div ui-view></div>

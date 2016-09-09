@@ -1,0 +1,40 @@
+
+<hr>
+<!-- <pre>{{dashboard.studentTotal}}</pre> -->
+<!-- <pre>{{dashboard.data | json}}</pre> -->
+
+<!-- Layout for data summary rendering -->
+<div class="row">
+	<div class="col-xs-3 col-sm-3 col-md-2 col-lg-3 col-xs-offset-1 col-sm-offset-1 col-md-offset-1 col-lg-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Students</h3>
+			</div>
+			<div class="panel-body">
+				<p>{{dashboard.data.studentCount}} Students</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Projects</h3>
+			</div>
+			<div class="panel-body">
+				<p>{{dashboard.data.projectCount}} Projects</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="panel-title">Assignments</h3>
+			</div>
+			<div class="panel-body">
+				<p>{{dashboard.data.assignmentCount}} Projects</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ui-view></div>

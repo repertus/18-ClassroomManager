@@ -1,0 +1,38 @@
+<hr>
+
+<div class="panel panel-default">
+	<div class="panel-heading clearfix">
+		<h3 class="panel-title">Students
+			<div class="btn-group pull-right header-center">
+				<a ui-sref="students.detail" class="btn btn-primary">Add Student</a>
+		</h3>
+	</div>
+	<div class="panel-body">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Student Name</th>
+					<th>Assignments</th>
+				</tr>
+			</thead>
+			<tbody ng-repeat='student in studentGrid.students'>
+				<tr>
+					<td>{{student.lastName}}, {{student.firstName}}</td>
+					<td>{{(student.assignments).length}}</td>
+					<td>
+						<a ui-sref="students.detail({studentId : student.studentId})" class="btn btn-primary">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</a>
+						<button type="button" class="btn btn-danger" ng-click="studentGrid.removeStudent(student)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- <pre>{{studentGrid.students | json}}</pre> -->
+
+<div ui-view></div>

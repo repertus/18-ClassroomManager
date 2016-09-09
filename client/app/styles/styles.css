@@ -1,0 +1,16 @@
+/*Establishes the parameters for sticky footer*/
+.container {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 2em auto -20em;
+}
+
+.footer, .push {
+	font-size: 1em;
+	height: 20em;
+	clear: both;
+	text-align: center;
+	color: #000;
+}
+

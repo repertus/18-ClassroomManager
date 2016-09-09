@@ -1,0 +1,36 @@
+{
+  "name": "client",
+  "authors": [
+    "Repertus <robertmdelc@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  },
+  "dependencies": {
+    "angular": "^1.5.8",
+    "bootstrap": "^3.3.7",
+    "angular-toastr": "^2.1.1",
+    "normalize-css": "^4.2.0",
+    "angular-ui-router": "^0.3.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.8",
+    "bardjs": "^0.1.8"
+  }
+}
