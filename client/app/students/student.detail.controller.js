@@ -5,10 +5,10 @@
         .module('myApp')
         .controller('StudentDetailController', StudentDetailController);
 
-    StudentDetailController.$inject = ['studentFactory', 'projectFactory', 'assignmentFactory', '$stateParams', 'toastr'];
+    StudentDetailController.$inject = ['studentFactory', 'projectFactory', 'assignmentFactory', '$stateParams', '$state', 'toastr'];
 
     /* @ngInject */
-    function StudentDetailController(studentFactory, projectFactory, assignmentFactory, $stateParams, toastr) {
+    function StudentDetailController(studentFactory, projectFactory, assignmentFactory, $stateParams, $state, toastr) {
         var vm = this;
         vm.title = 'StudentDetailController';
 
@@ -56,7 +56,6 @@
                     vm.student.assignments[i].assignmentGrade = vm.assignGrade;
                 };
               };   
-              // vm.student.assignments.assigmentGrade.push(grade);
               toastr.success('Successfully changed grade', 'Saved');
             },
             function() {
@@ -83,6 +82,7 @@
           studentFactory.add(student).then(
             function(){
                 toastr.success('Successfully added student', 'Saved');
+                $state.go('students.grid');
             },
             function(){
                 toastr.error('Error adding student', 'Error');
@@ -93,6 +93,7 @@
           studentFactory.update(student).then(
             function(){
                 toastr.success('Successfully updated student', 'Saved');
+                $state.go('students.grid');
             },
             function(){
                 toastr.error('Error updating student', 'Error');

@@ -3,6 +3,7 @@
 	<div class="panel-heading">
 		<h3 class="panel-title">Assign this project</h3>
 	</div>
+	<!-- Renders the dropdown slection menu for students -->
 	<div class="panel-body">
 		<form ng-submit='projectDetail.addAssignment(projectDetail.project.projectId)'>
 			<label for="">Select a Student</label>
@@ -17,7 +18,7 @@
 		</form>
 	</div>
 </div>
-
+<!-- Renders the assigned students and assigned grade to the project -->
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Assigned To</h3>
@@ -27,14 +28,36 @@
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th>Grade</th>
+					<th class="colAlign">Grade Assignment</th>
+					<th class="colAlign">Remove</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat='assignment in projectDetail.project.assignments'>
-					<td>{{assignment.student.lastName}}, {{assignment.student.firstName}}</td>
-					<td width=5%>
-						<button type="button" class="btn btn-danger" ng-click="projectDetail.removeAssignment(assignment)">
+					<td width="80%">
+						{{assignment.student.lastName}}, {{assignment.student.firstName}}
+					</td>
+					<td width="15%" class="colAlign">
+						<div ng-hide="editGrade" class="gradeDetail">	{{assignment.assignmentGrade}}
+						</div>
+						<div ng-show="editGrade" class="gradeDetail">
+							<select ng-model="projectDetail.assignGrade" name="Grades" id="">
+								<option ng-selected="assignment.assignmentGrade == 'A'" ng-value="A">A</option>
+								<option ng-selected="assignment.assignmentGrade == 'B'" ng-value="B">B</option>
+								<option ng-selected="assignment.assignmentGrade == 'C'" ng-value="C">C</option>
+								<option ng-selected="assignment.assignmentGrade == 'D'" ng-value="D">D</option>
+								<option  ng-selected="assignment.assignmentGrade == 'F'" ng-value="F">F</option>
+							</select>
+						</div>
+						<button type="button" class="btn btn-primary" ng-click="editGrade = !editGrade" ng-hide="editGrade" id="addGrade" class="gradeButton">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button type="button" class="btn btn-success" ng-click="projectDetail.editGrade(assignment, projectDetail.assignGrade); editGrade = !editGrade" ng-show="editGrade" id="saveGrade" class="gradeButton">
+							<span class="glyphicon glyphicon-ok"></span>
+						</button>
+					</td>
+					<td width=5% class="colAlign">
+						<button type="button" class="btn btn-danger" ng-click="projectDetail.removeAssignment(assignment)" ng-hide="editGrade">
 							<span class="glyphicon glyphicon-remove"></span>
 						</button>
 					</td>
@@ -43,7 +66,7 @@
 		</table>
 	</div>
 </div>
-
+<!-- Renders the project detail for editing purposes -->
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Edit Project</h3>

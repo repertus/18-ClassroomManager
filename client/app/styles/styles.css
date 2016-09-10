@@ -1,10 +1,10 @@
-body {
+#first {
 	/*Responsive Full Background Image */
-	background-image: url('https://ticklemeabel.files.wordpress.com/2014/03/42-33178966.jpg');
+	/*background-image: url('https://ticklemeabel.files.wordpress.com/2014/03/42-33178966.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	background-size: cover;
+	background-size: cover;*/
 	/*opacity: 0.3;*/
 	background-color: #222a12;
 }
@@ -26,15 +26,19 @@ body {
 }
 
 
-/***************************************
-**       Student Detail Html          **
-***************************************/
-.gradeAlign {
+/************************************************************
+***Centers table rows and aligns buttons in detail screens***
+************************************************************/
+.colAlign {
 	text-align: center;
 }
 
 #addGrade,
 #saveGrade {
+	margin-left: 1.5em;
+}
+
+.gradebutton {
 	margin-left: 1.5em;
 }
 

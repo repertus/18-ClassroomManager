@@ -1,4 +1,6 @@
 <hr>
+
+<!-- Renders the dropdown selection menu with project list -->
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Assign a project</h3>
@@ -18,6 +20,7 @@
 	</div>
 </div>
 
+<!-- Renders the table with assigned projects and grade selection -->
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Assignments</h3>
@@ -27,22 +30,26 @@
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th class="gradeAlign">Grade Assignment</th>
+					<th class="colAlign">Grade Assignment</th>
 					<th>Remove</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat='assignment in studentDetail.student.assignments'>
-					<td width=80%>{{assignment.project.name}}</td>
-					<td width=15% class="gradeAlign">
-						<div ng-hide="editGrade" class="gradeDetail">{{assignment.assignmentGrade}}</div>
+					<td width=80%>
+						{{assignment.project.name}}
+					</td>
+					<td width=15% class="colAlign">
+						<div ng-hide="editGrade" class="gradeDetail">
+							{{assignment.assignmentGrade}}
+						</div>
 						<div ng-show="editGrade" class="gradeDetail">
 							<select ng-model="studentDetail.assignGrade" name="Grades" id="">
-								<option ng-selected="assignment.assignmentGrade == 'A'" ng-value="A" ng-model="assignment.assignmentGrade">A</option>
-								<option ng-selected="assignment.assignmentGrade == 'B'" ng-value="B" ng-model="assignment.assignmentGrade">B</option>
-								<option ng-selected="assignment.assignmentGrade == 'C'" ng-value="C" ng-model="assignment.assignmentGrade">C</option>
-								<option ng-selected="assignment.assignmentGrade == 'D'" ng-value="D" ng-model="assignment.assignmentGrade">D</option>
-								<option  ng-selected="assignment.assignmentGrade == 'F'" ng-value="F" ng-model="assignment.assignmentGrade">F</option>
+								<option ng-selected="assignment.assignmentGrade == 'A'" ng-value="A">A</option>
+								<option ng-selected="assignment.assignmentGrade == 'B'" ng-value="B">B</option>
+								<option ng-selected="assignment.assignmentGrade == 'C'" ng-value="C">C</option>
+								<option ng-selected="assignment.assignmentGrade == 'D'" ng-value="D">D</option>
+								<option  ng-selected="assignment.assignmentGrade == 'F'" ng-value="F">F</option>
 							</select>
 						</div>
 						<button type="button" class="btn btn-primary" ng-click="editGrade = !editGrade" ng-hide="editGrade" id="addGrade" class="gradeButton">
@@ -52,7 +59,7 @@
 							<span class="glyphicon glyphicon-ok"></span>
 						</button>
 					</td>
-					<td width=5% class="gradeAlign">
+					<td width=5% class="colAlign">
 						<button type="button" class="btn btn-danger" ng-click="studentDetail.removeAssignment(assignment)" ng-hide="editGrade">
 							<span class="glyphicon glyphicon-remove"></span>
 						</button>
@@ -63,6 +70,7 @@
 	</div>
 </div>
 
+<!-- Render the student detail for editing purposes -->
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Edit Student</h3>

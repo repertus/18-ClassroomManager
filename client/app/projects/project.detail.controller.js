@@ -5,10 +5,10 @@
         .module('myApp')
         .controller('ProjectDetailController', ProjectDetailController);
 
-    ProjectDetailController.$inject = ['projectFactory', 'studentFactory', 'assignmentFactory', '$stateParams', 'toastr'];
+    ProjectDetailController.$inject = ['projectFactory', 'studentFactory', 'assignmentFactory', '$stateParams', '$state','toastr'];
 
     /* @ngInject */
-    function ProjectDetailController(projectFactory, studentFactory, assignmentFactory, $stateParams, toastr) {
+    function ProjectDetailController(projectFactory, studentFactory, assignmentFactory, $stateParams, $state, toastr) {
         var vm = this;
         vm.title = 'ProjectDetailController';
 
@@ -17,9 +17,11 @@
 
         // methods
         vm.addAssignment = addAssignment;
+        vm.addProject = addProject;
+        vm.editGrade = editGrade;
         vm.removeAssignment = removeAssignment;
         vm.updateProject = updateProject;
-        vm.addProject = addProject;
+        
 
         activate();
 
@@ -35,6 +37,29 @@
             },
             function() {
                 toastr.error('Error adding assignment to student', 'Error');
+            });
+        }
+
+        function editGrade(assignment, grade){
+            var i = 0;
+            var newGrade = {  'studentId' : assignment.studentId, 
+                                'projectId' : assignment.projectId,
+                                'assignmentGrade' : vm.assignGrade};
+          
+          assignmentFactory.update(newGrade).then(
+            function() {
+              for(i=0; i < vm.project.assignments.length; i++)
+              {
+                if(vm.project.assignments[i].studentId == assignment.studentId && 
+                    vm.project.assignments[i].projectId == assignment.projectId)
+                {
+                    vm.project.assignments[i].assignmentGrade = vm.assignGrade;
+                };
+              };   
+              toastr.success('Successfully changed grade', 'Saved');
+            },
+            function() {
+                toastr.error('Error changing grade', 'Error');
             });
         }
 
@@ -57,6 +82,7 @@
           projectFactory.add(project).then(
             function(){
                 toastr.success('Successfully added project', 'Saved');
+                $state.go('projects.grid');
             },
             function(){
                 toastr.error('Error adding project', 'Error');
@@ -67,6 +93,7 @@
           projectFactory.update(project).then(
             function(){
                 toastr.success('Successfully updated project', 'Saved');
+                $state.go('projects.grid');
             },
             function(){
                 toastr.error('Error updating project', 'Error');

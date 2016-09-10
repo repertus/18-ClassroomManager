@@ -1,26 +1,27 @@
 <hr>
-
 <div class="panel panel-default">
 	<div class="panel-heading clearfix">
 		<h3 class="panel-title">Students
 			<div class="btn-group pull-right header-center">
 				<a ui-sref="students.detail" class="btn btn-primary">Add Student</a>
+			</div>
 		</h3>
 	</div>
 	<div class="panel-body">
+		<!-- Renders the summary table with for all the students -->
 		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>Student Name</th>
-					<th>Assignments</th>
-					<th>Edit / Delete</th>
+					<th class="colAlign">Assignments</th>
+					<th class="colAlign">Edit / Delete</th>
 				</tr>
 			</thead>
 			<tbody ng-repeat='student in studentGrid.students'>
 				<tr>
 					<td>{{student.lastName}}, {{student.firstName}}</td>
-					<td>{{student.assignments.length}}</td>
-					<td width=10%>
+					<td class="colAlign">{{student.assignments.length}}</td>
+					<td width=10% class="colAlign">
 						<a ui-sref="students.detail({studentId : student.studentId})" class="btn btn-primary">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</a>
@@ -35,5 +36,4 @@
 </div>
 
 <!-- <pre>{{studentGrid.students | json}}</pre> -->
-
 <div ui-view></div>
