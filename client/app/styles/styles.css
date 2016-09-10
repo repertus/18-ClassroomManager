@@ -1,3 +1,14 @@
+body {
+	/*Responsive Full Background Image */
+	background-image: url('https://ticklemeabel.files.wordpress.com/2014/03/42-33178966.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	background-size: cover;
+	/*opacity: 0.3;*/
+	background-color: #222a12;
+}
+
 /*Establishes the parameters for sticky footer*/
 .container {
   min-height: 100%;
@@ -12,5 +23,23 @@
 	clear: both;
 	text-align: center;
 	color: #000;
+}
+
+
+/***************************************
+**       Student Detail Html          **
+***************************************/
+.gradeAlign {
+	text-align: center;
+}
+
+#addGrade,
+#saveGrade {
+	margin-left: 1.5em;
+}
+
+.gradeDetail,
+.gradeButton {
+	display: inline;
 }
 

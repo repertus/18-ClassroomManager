@@ -27,13 +27,36 @@
 			<thead>
 				<tr>
 					<th>Name</th>
-					<th>Grade</th>
+					<th class="gradeAlign">Grade Assignment</th>
+					<th>Remove</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr ng-repeat='assignment in studentDetail.student.assignments'>
-					<td>{{assignment.project.name}}</td>
-					<td>??%</td>
+					<td width=80%>{{assignment.project.name}}</td>
+					<td width=15% class="gradeAlign">
+						<div ng-hide="editGrade" class="gradeDetail">{{assignment.assignmentGrade}}</div>
+						<div ng-show="editGrade" class="gradeDetail">
+							<select ng-model="studentDetail.assignGrade" name="Grades" id="">
+								<option ng-selected="assignment.assignmentGrade == 'A'" ng-value="A" ng-model="assignment.assignmentGrade">A</option>
+								<option ng-selected="assignment.assignmentGrade == 'B'" ng-value="B" ng-model="assignment.assignmentGrade">B</option>
+								<option ng-selected="assignment.assignmentGrade == 'C'" ng-value="C" ng-model="assignment.assignmentGrade">C</option>
+								<option ng-selected="assignment.assignmentGrade == 'D'" ng-value="D" ng-model="assignment.assignmentGrade">D</option>
+								<option  ng-selected="assignment.assignmentGrade == 'F'" ng-value="F" ng-model="assignment.assignmentGrade">F</option>
+							</select>
+						</div>
+						<button type="button" class="btn btn-primary" ng-click="editGrade = !editGrade" ng-hide="editGrade" id="addGrade" class="gradeButton">
+							<span class="glyphicon glyphicon-pencil"></span>
+						</button>
+						<button type="button" class="btn btn-success" ng-click="studentDetail.editGrade(assignment, studentDetail.assignGrade); editGrade = !editGrade" ng-show="editGrade" id="saveGrade" class="gradeButton">
+							<span class="glyphicon glyphicon-ok"></span>
+						</button>
+					</td>
+					<td width=5% class="gradeAlign">
+						<button type="button" class="btn btn-danger" ng-click="studentDetail.removeAssignment(assignment)" ng-hide="editGrade">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -60,12 +83,13 @@
 				<label for="email">Telephone:</label>
     			<input ng-model="studentDetail.student.telephone" type='text' class="form-control" id="phone">
 			</div>
-			<button type="submit" class="btn btn-primary" ng-click="studentDetail.updateStudent(studentDetail.student)">Save</button>
+			<button ng-if='studentDetail.studentId != null' type="submit" class="btn btn-primary" ng-click="studentDetail.updateStudent(studentDetail.student)">Save</button>
+			<button ng-if='studentDetail.studentId == null' type="submit" class="btn btn-primary" ng-click="studentDetail.addStudent(studentDetail.student)">Save</button>
 		</form>
 	</div>
 </div>
 
-<!-- <pre>{{studentDetail.student.assignments[0].project.name}}</pre>
+<!-- <pre>{{studentDetail.student.assignments[0].project.projectId}}</pre>
 <pre>{{studentDetail.student | json}}</pre> -->
 
 

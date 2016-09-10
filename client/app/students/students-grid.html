@@ -13,13 +13,14 @@
 				<tr>
 					<th>Student Name</th>
 					<th>Assignments</th>
+					<th>Edit / Delete</th>
 				</tr>
 			</thead>
 			<tbody ng-repeat='student in studentGrid.students'>
 				<tr>
 					<td>{{student.lastName}}, {{student.firstName}}</td>
-					<td>{{(student.assignments).length}}</td>
-					<td>
+					<td>{{student.assignments.length}}</td>
+					<td width=10%>
 						<a ui-sref="students.detail({studentId : student.studentId})" class="btn btn-primary">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</a>

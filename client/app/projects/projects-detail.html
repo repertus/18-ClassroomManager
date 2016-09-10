@@ -1,14 +1,20 @@
-<pre>{{projectDetail.data | json}}</pre>
 <hr>
 <div class="panel panel-default">
 	<div class="panel-heading">
 		<h3 class="panel-title">Assign this project</h3>
 	</div>
 	<div class="panel-body">
-		<label for="">Select a Student</label>
-		<select id="input" ng-model='projectDetail.studentSelection' ng-options='(option.lastName + ", " + option.firstName) for option in projectDetail.students' class="form-control" required="required">
-			<option value="">Select a student to assign project</option>
-		</select>
+		<form ng-submit='projectDetail.addAssignment(projectDetail.project.projectId)'>
+			<label for="">Select a Student</label>
+			<div class='input-group'>
+				<select id="input" ng-model='projectDetail.newAssignment' ng-options='(option.lastName + ", " + option.firstName) for option in projectDetail.students' class="form-control" required="required">
+				<option value="">Select a student to assign project</option>
+				</select>
+				<span class='input-group-btn'>
+					<button type="submit" class="btn btn-secondary">Assign</button>
+				</span>
+			</div>
+		</form>
 	</div>
 </div>
 
@@ -25,8 +31,13 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td></td>
+				<tr ng-repeat='assignment in projectDetail.project.assignments'>
+					<td>{{assignment.student.lastName}}, {{assignment.student.firstName}}</td>
+					<td width=5%>
+						<button type="button" class="btn btn-danger" ng-click="projectDetail.removeAssignment(assignment)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+					</td>
 				</tr>
 			</tbody>
 		</table>
@@ -38,22 +49,23 @@
 		<h3 class="panel-title">Edit Project</h3>
 	</div>
 	<div class="panel-body">
-		<form ng-submit="projectDetail.add()" role="form">
+		<form role="form">
 			<div class="form-group">
 				<label for="">Name</label>
-				<input ng-model="projectDetail.data.projectName" type="text" class="form-control" id="" placeholder="Input field">
+				<input ng-model="projectDetail.project.name" type="text" class="form-control" id="" />
 			</div>
 			<div class="form-group">
 				<label for="">Desciption</label>
-				<textarea ng-mode="projectDetail.data.projectDescription" class="form-control" rows="3" id="comment"></textarea>
+				<textarea ng-mode="projectDetail.project.description" class="form-control" rows="3" id="comment"></textarea>
 			</div>
-			<button type="submit" class="btn btn-primary">Save</button>
+			<button ng-if='projectDetail.projectId != null' type="submit" class="btn btn-primary" ng-click="projectDetail.updateProject(projectDetail.project)">Save</button>
+			<button ng-if='projectDetail.projectId == null' type="submit" class="btn btn-primary" ng-click="projectDetail.addProject(projectDetail.project)">Save</button>
 		</form>
 	</div>
 </div>
 
-<pre>{{projectDetail.students | json}}</pre>
-<pre>{{projectDetail.projectId}}</pre>
-
+<!-- <pre>{{projectDetail.students | json}}</pre>
+<pre>{{projectDetail.projectId}}</pre> -->
+<!-- <pre>{{projectDetail.project | json}}</pre> -->
 
 <div ui-view></div>

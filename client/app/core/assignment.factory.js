@@ -71,7 +71,7 @@
         function update(assignment) {
           var defer = $q.defer();
 
-          $http.put(apiUrl + '/assignments/' + assignment.assignmentId, assignment)
+          $http.put(apiUrl + '/assignments/' + assignment.studentId + '/' + assignment.projectId, assignment)
             .then(
               function() {
                 defer.resolve();
@@ -84,10 +84,10 @@
           return defer.promise;
         }
 
-        function remove(assignment) {
+        function remove(studentId, projectId) {
           var defer = $q.defer();
 
-          $http.delete(apiUrl + '/assignments/' + assignment.assignmentId)
+          $http.delete(apiUrl + '/assignments/' + studentId + '/' + projectId)
             .then(
               function(response) {
                 defer.resolve(response.data);

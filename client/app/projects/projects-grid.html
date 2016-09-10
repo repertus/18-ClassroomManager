@@ -3,8 +3,8 @@
 <div class="panel panel-default">
 	<div class="panel-heading clearfix">
 		<h3 class="panel-title">Projects
-		<!-- <div class="btn-group pull-right"> -->
-			<div class="btn-group pull-right header-center"><button type="button" class="btn btn-primary">Add Project</button></div>
+			<div class="btn-group pull-right header-center">
+				<a ui-sref="projects.detail" class="btn btn-primary">Add Project</a>
 		</h3>	
 	</div>
 	<div class="panel-body">
@@ -13,17 +13,18 @@
 				<tr>
 					<th>Project Name</th>
 					<th>Assigned Count</th>
+					<th>Edit / Delete</th>
 				</tr>
 			</thead>
 			<tbody ng-repeat="project in projectGrid.projects">
 				<tr>
 					<td>{{project.name}}</td>
-					<td>X number</td>
+					<td>{{project.assignments.length}}</td>
 					<td width="10%">
 						<a ui-sref="projects.detail({projectId : project.projectId})" class="btn btn-primary">
 							<span class="glyphicon glyphicon-pencil"></span>
 						</a>
-						<button type="button" class="btn btn-danger" ng-click="ProjectGridController.removeProject(project.projectId)">
+						<button type="button" class="btn btn-danger" ng-click="projectGrid.removeProject(project)">
 							<span class="glyphicon glyphicon-remove"></span>
 						</button>									
 					</td>
@@ -34,5 +35,6 @@
 </div>
 
 
-<pre>{{projectGrid.data | json}}</pre>
+<!-- <pre>{{projectGrid.projects.assignment}}</pre>
+<pre>{{projectGrid.projects | json}}</pre> -->
 <div ui-view></div>

@@ -13,11 +13,15 @@
         vm.title = 'StudentDetailController';
 
         // properties
-
+        vm.studentId = $stateParams.studentId
 
         // methods
         vm.addAssignment = addAssignment;
+        vm.addStudent = addStudent;
+        vm.editGrade = editGrade;
+        vm.removeAssignment = removeAssignment;
         vm.updateStudent = updateStudent;
+        
 
         activate();
 
@@ -33,6 +37,55 @@
             },
             function() {
                 toastr.error('Error adding assignment', 'Error');
+            });
+        }
+
+        function editGrade(assignment, grade){
+            var i = 0;
+            var newGrade = {  'studentId' : assignment.studentId, 
+                                'projectId' : assignment.projectId,
+                                'assignmentGrade' : vm.assignGrade};
+          
+          assignmentFactory.update(newGrade).then(
+            function() {
+              for(i=0; i < vm.student.assignments.length; i++)
+              {
+                if(vm.student.assignments[i].studentId == assignment.studentId && 
+                    vm.student.assignments[i].projectId == assignment.projectId)
+                {
+                    vm.student.assignments[i].assignmentGrade = vm.assignGrade;
+                };
+              };   
+              // vm.student.assignments.assigmentGrade.push(grade);
+              toastr.success('Successfully changed grade', 'Saved');
+            },
+            function() {
+                toastr.error('Error changing grade', 'Error');
+            });
+        }
+
+        function removeAssignment(assignment) {
+          var studentId = vm.student.studentId;
+          var projectId = assignment.project.projectId;
+
+          assignmentFactory.remove(studentId, projectId).then(
+            function(){
+                var index = vm.student.assignments.indexOf(assignment);
+                vm.student.assignments.splice(index, 1);
+                toastr.success('Successfully deleted assignment', 'Saved');
+            },
+            function(){
+                toastr.error('Error deleting assignment', 'Error');
+            });
+        }
+
+        function addStudent(student) {
+          studentFactory.add(student).then(
+            function(){
+                toastr.success('Successfully added student', 'Saved');
+            },
+            function(){
+                toastr.error('Error adding student', 'Error');
             });
         }
 
@@ -60,6 +113,7 @@
                 studentFactory.getById($stateParams.studentId).then(
                     function (data) {
                         vm.student = data;
+                        console.log(vm.student);
                     },
 
                     function(error) {
