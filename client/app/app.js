@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('myApp', ['ui.router', 'toastr'])
+        .module('myApp', ['ui.router', 'toastr', 'ngBootbox'])
         .value('apiUrl', 'http://localhost:64162/api')
         .config(function($urlRouterProvider, $stateProvider) {
         	

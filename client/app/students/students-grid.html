@@ -17,8 +17,8 @@
 					<th class="colAlign">Edit / Delete</th>
 				</tr>
 			</thead>
-			<tbody ng-repeat='student in studentGrid.students'>
-				<tr>
+			<tbody>
+				<tr ng-repeat='student in studentGrid.students'>
 					<td>{{student.lastName}}, {{student.firstName}}</td>
 					<td class="colAlign">{{student.assignments.length}}</td>
 					<td width=10% class="colAlign">

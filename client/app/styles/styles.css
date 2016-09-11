@@ -1,30 +1,52 @@
+body { 
+	padding-top: 50px;
+}
+
+/**********************************************
+***Responsive Full Background Image in Index***
+**********************************************/
 #first {
-	/*Responsive Full Background Image */
-	/*background-image: url('https://ticklemeabel.files.wordpress.com/2014/03/42-33178966.jpg');
+	width: 1280px;
+	height: 645px;
+	background-image: url('https://ticklemeabel.files.wordpress.com/2014/03/42-33178966.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-attachment: fixed;
-	background-size: cover;*/
-	/*opacity: 0.3;*/
-	background-color: #222a12;
+	background-size: cover;
+	opacity: 0.5;	
+}
+#second {
+	width: 1280px;
+	min-height: 645px;
+	position:absolute;
+	top: 0;
+	left:0;
 }
 
-/*Establishes the parameters for sticky footer*/
+/*************************
+***Panel global styling***
+*************************/
+.panel-default > .panel-heading {
+  color: #fff;
+  background-color: #f39f4c;
+}
+
+/*************************************************
+***Establishes the parameters for sticky footer***
+*************************************************/
 .container {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 2em auto -20em;
+  margin: 2em auto -30em;
 }
-
 .footer, .push {
 	font-size: 1em;
-	height: 20em;
+	height: 30em;
 	clear: both;
 	text-align: center;
 	color: #000;
 }
-
 
 /************************************************************
 ***Centers table rows and aligns buttons in detail screens***
@@ -32,18 +54,77 @@
 .colAlign {
 	text-align: center;
 }
-
 #addGrade,
 #saveGrade {
 	margin-left: 1.5em;
 }
-
 .gradebutton {
 	margin-left: 1.5em;
 }
-
 .gradeDetail,
 .gradeButton {
 	display: inline;
 }
 
+/***********************
+***Styles the Nav Bar***
+***********************/
+.navbar-default {
+  background-color: #f39f4c;
+}
+.navbar-default .navbar-brand {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+  color: #f9d5b2;
+}
+.navbar-default .navbar-nav > li > a {
+  color: #ecf0f1;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+  color: #f9d5b2;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  color: #f9d5b2;
+  background-color: #ee7600;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+  color: #f9d5b2;
+  background-color: #ee7600;
+}
+
+/**********************
+***Dashboard styling***
+**********************/
+#dashboardRow{
+	margin-top: 1em;
+}
+.dashboard {
+	text-align: center;
+}
+.dashBody {
+	font-size: 1.5em;
+}
+
+/********************************
+***Table-striped color styling***
+********************************/
+.table-striped>tbody>tr:nth-child(odd)>td,
+tr.found{
+    background-color: #fdf1e5;
+}
+
+/*******************
+***Button styling***
+*******************/
+.btn-primary,
+.btn-danger,
+.btn-success {
+	opacity: .75;
+}

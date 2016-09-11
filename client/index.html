@@ -14,29 +14,33 @@
 <!-- endinject -->
 </head>
 
-<body>
+<body data-target="#spy-scroll-id">
 
+	<div id="main">
+		<nav class="navbar navbar-default navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="#">Classroom Manager</a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a ui-sref="dashboard">Dashboard</a></li>
+						<li><a ui-sref="students.grid">Students</a></li>
+						<li><a ui-sref="projects.grid">Projects</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
-	<!-- Navigation -->
-	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-			<a class="navbar-brand" href="#">Classroom Manager</a>
-			<ul class="nav navbar-nav">
-				<li><a ui-sref="dashboard">Dashboard</a></li>
-				<li><a ui-sref="students.grid">Students</a></li>
-				<li><a ui-sref="projects.grid">Projects</a></li>
-			</ul>
-	</nav>
-
-
-
-	<!-- Main container div -->
-	<div class="container">
-		<div ui-view></div>
-	</div> 
-	<!-- Main container div -->
-
-	<!-- Used to set up sticky footer -->
-<!-- 	<div class="push"></div>
+		<div id="first"></div>
+		<div id="second">
+			<!-- Main container div -->
+			<div class="container">
+				<div ui-view></div>
+			</div> 
+			<!-- Main container div -->
+				<!-- Used to set up sticky footer -->
+	<div class="push"></div>
 
 	<div class="footer">
 		<span>&copy; Repertus Creative Works</span>
@@ -44,7 +48,11 @@
 		<span><a href="mailto: RobertMdC@gmail.com"><img src="app/styles/img/glyphicons-social-19-gmail.png"></a></span>
 		<span><a href="https://www.linkedin.com/in/robertmdelc"><img src="app/styles/img/glyphicons-social-18-linked-in.png"></a></span>
 		<span><a href="https://github.com/repertus"><img src="app/styles/img/glyphicons-gitHub.png" width="25"></a></span>	
-	</div> -->
+	</div>
+		</div>
+	</div>
+
+
 
 
 <!-- bower:js -->
@@ -53,6 +61,8 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
 <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/bootbox/bootbox.js"></script>
+<script src="bower_components/ngBootbox/dist/ngBootbox.js"></script>
 <!-- endbower -->
 
 <!-- inject:js -->
@@ -68,6 +78,13 @@
 <script src="/app/students/student.detail.controller.js"></script>
 <script src="/app/students/student.factory.js"></script>
 <script src="/app/students/student.grid.controller.js"></script>
+<script>
+	// Controls the switching on the navbar
+	$(".nav a").on("click", function(){
+		$(".nav").find(".active").removeClass("active");
+		$(this).parent().addClass("active");
+	});
+</script>
 <!-- endinject -->
 </body>
 </html>

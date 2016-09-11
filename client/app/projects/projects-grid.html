@@ -18,8 +18,8 @@
 					<th class="colAlign">Edit / Delete</th>
 				</tr>
 			</thead>
-			<tbody ng-repeat="project in projectGrid.projects">
-				<tr>
+			<tbody>
+				<tr ng-repeat="project in projectGrid.projects">
 					<td>{{project.name}}</td>
 					<td class="colAlign">{{project.assignments.length}}</td>
 					<td width="10%" class="colAlign">
