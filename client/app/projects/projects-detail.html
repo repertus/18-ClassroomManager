@@ -33,7 +33,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat='assignment in projectDetail.project.assignments'>
+				<tr ng-repeat='assignment in projectDetail.project.assignments | orderBy: "student.lastName"'>
 					<td width="80%">
 						{{assignment.student.lastName}}, {{assignment.student.firstName}}
 					</td>

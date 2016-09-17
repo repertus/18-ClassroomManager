@@ -66,25 +66,25 @@
 <!-- endbower -->
 
 <!-- inject:js -->
-<script src="/app/app.js"></script>
+<script src="/app/app.module.js"></script>
 <script src="/app/core/assignment.factory.js"></script>
 <script src="/app/dashboard/dashboard.controller.js"></script>
-<!-- <script src="/app/dashboard/dashboard.controller.spec.js"></script> -->
 <script src="/app/dashboard/dashboard.factory.js"></script>
-<!-- <script src="/app/dashboard/dashboard.factory.spec.js"></script> -->
 <script src="/app/projects/project.detail.controller.js"></script>
 <script src="/app/projects/project.factory.js"></script>
 <script src="/app/projects/project.grid.controller.js"></script>
 <script src="/app/students/student.detail.controller.js"></script>
 <script src="/app/students/student.factory.js"></script>
 <script src="/app/students/student.grid.controller.js"></script>
+<!-- endinject -->
+
+<!-- Controls the switching on the navbar -->
 <script>
-	// Controls the switching on the navbar
 	$(".nav a").on("click", function(){
 		$(".nav").find(".active").removeClass("active");
 		$(this).parent().addClass("active");
 	});
 </script>
-<!-- endinject -->
+
 </body>
 </html>

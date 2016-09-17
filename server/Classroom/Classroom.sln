@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom.API", "Classroom.API\Classroom.API.csproj", "{B7E22188-CAAA-4D8F-86AC-CA2F2F9FFA9D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Classroom.API.Tests", "Classroom.API.Tests\Classroom.API.Tests.csproj", "{18C996BD-C81A-4BCB-BCD6-3DCAEB228C5F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B7E22188-CAAA-4D8F-86AC-CA2F2F9FFA9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7E22188-CAAA-4D8F-86AC-CA2F2F9FFA9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7E22188-CAAA-4D8F-86AC-CA2F2F9FFA9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7E22188-CAAA-4D8F-86AC-CA2F2F9FFA9D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18C996BD-C81A-4BCB-BCD6-3DCAEB228C5F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18C996BD-C81A-4BCB-BCD6-3DCAEB228C5F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18C996BD-C81A-4BCB-BCD6-3DCAEB228C5F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18C996BD-C81A-4BCB-BCD6-3DCAEB228C5F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
